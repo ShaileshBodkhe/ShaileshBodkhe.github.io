@@ -7,28 +7,56 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    .body
+    {
+        font-family:Verdana;
+    }
+    .menu
+    {
+        color: white;
+        
+    }
+    .menu:hover{
+        background-color:gray;
+        color:black;
+    }
+    .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+        background-color:gray;
+    }
+    </style>
 </head>
-<body>
+<body class="body">
 
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">CareCHEM Corporation</a>
+                <a class="navbar-brand" href="#" style="color:white">CareCHEM Corporation</a>
+                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-            <ul class="nav navbar-nav text-right">
-                <li><a href="/index.html">Home</a></li>
-                <li class="active"><a href="/aboutus.html">About US</a></li>
-                <li><a href="/product.html">Products & Services</a></li>
-                <li><a href="/contactus.html">Contact US</a></li>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav nav-pills head-menu pull-right">
+                <li><a class="menu" href="/index.html">HOME</a></li>
+                <li class="active"><a href="/aboutus.html">ABOUT&nbsp;US</a></li>
+                <li><a class="menu" href="/product.html">PRODUCTS & SERVICES</a></li>
+                <li><a class="menu"  href="/contactus.html">CONTACT US</a></li>
             </ul>
+        </div>
         </div>
     </nav>
 <div class="container-fluid">
-    <div class="row">
-        
-        Company Overview:
+    <div class="row">        
+        <div class="jumbotron">
+            <p>
+        Welcome to the website of <b>CareCHEM Corporation.</b>
+    </p>
         <p>
-            CareCHEM Corporation, a specialty chemical company offering services of sales,
+        <b>CareCHEM Corporation</b>, a specialty chemical company offering services of sales,
             marketing, sourcing & distribution of specialty chemicals. We are
             headquartered at Navi Mumbai with well equipped warehouse at Bhiwandi.
         </p>
@@ -65,6 +93,7 @@
             With rich experience in performance & specialty ingredient business, we are
             also expanding our offerings to the other industries which includes
         </p>
+    </div>
     </div>
 </div>
 </body>

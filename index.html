@@ -1,340 +1,439 @@
-@using System.Web.Optimization
-@using ASI.Portal3.Data
-@using ASI.Portal3.Mvc.Models
-@using ASI.Portal3.Data.Models
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <!-- Theme Made By www.w3schools.com - No Copyright -->
+    <title>Bootstrap Theme Company Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewBag.Title</title>
-    @RenderSection("head", required: false)
-    @Styles.Render("~/Content/bootstrap")
-    @Styles.Render("~/Content/AsiCss")
-    <link href="~/Content/SideNav.css" rel="stylesheet">
-    <link href="~/Content/themes/default/style.css" rel="stylesheet">
-    <style type="text/css">
-        .headerFont {
-            font-size: 16px;
-            line-height: 1.5625;
-            font-family: proxima-nova, "helvetica Neue", Helvetica, Arial, sans-serif;
-            color: #808080;
-        }
-
-        html {
-            min-height: 100%;
-            position: relative;
-        }
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
         body {
-            margin-bottom: 20px;
+            font: 400 15px Lato, sans-serif;
+            line-height: 1.8;
+            color: #818181;
         }
 
-        .marginTop50 {
-            margin-top: 60px;
+        h2 {
+            font-size: 24px;
+            text-transform: uppercase;
+            color: #303030;
+            font-weight: 600;
+            margin-bottom: 30px;
         }
 
-        .navbar-toggle, .icon-bar {
-            border: 1px solid white;
+        h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            color: #303030;
+            font-weight: 400;
+            margin-bottom: 30px;
         }
 
-        .nav > li > a:hover, .nav > li > a:focus {
-            text-decoration: none;
-            background-color: #009da5;
+        .jumbotron {
+            background-color: #ffffff;
+            color: navy;
+            padding: 100px 25px;
+            font-family: Montserrat, sans-serif;
         }
 
-        .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
-            background-color: #009da5;
-            border-color: #337ab7;
+        .container-fluid {
+            padding: 60px 50px;
         }
 
-        .dropdown-submenu {
-            position: relative;
+        .bg-grey {
+            background-color: #f6f6f6;
         }
 
-            .dropdown-submenu > .dropdown-menu {
-                top: 0;
-                left: 100%;
-                margin-top: -6px;
-                margin-left: -1px;
-                -webkit-border-radius: 0 6px 6px 6px;
-                -moz-border-radius: 0 6px 6px 6px;
-                border-radius: 0 6px 6px 6px;
-            }
+        .logo-small {
+            color: #ffffff;
+            font-size: 50px;
+        }
 
-            .dropdown-submenu:hover > .dropdown-menu {
-                display: block;
-            }
+        .logo {
+            color: #ffffff;
+            font-size: 200px;
+        }
 
-            .dropdown-submenu > a:after {
-                display: block;
-                content: " ";
-                float: right;
-                width: 0;
-                height: 0;
-                border-color: transparent;
-                border-style: solid;
-                border-width: 5px 0 5px 5px;
-                border-left-color: #cccccc;
-                margin-top: 5px;
-                margin-right: -10px;
-            }
+        .thumbnail {
+            padding: 0 0 15px 0;
+            border: none;
+            border-radius: 0;
+        }
 
-            .dropdown-submenu:hover > a:after {
-                border-left-color: #ffffff;
-            }
-
-            .dropdown-submenu.pull-left {
-                float: none;
-            }
-
-                .dropdown-submenu.pull-left > .dropdown-menu {
-                    left: -100%;
-                    margin-left: 10px;
-                    -webkit-border-radius: 6px 0 6px 6px;
-                    -moz-border-radius: 6px 0 6px 6px;
-                    border-radius: 6px 0 6px 6px;
-                }
-
-        @@media (min-width: 1000px) {
-            .container {
+            .thumbnail img {
                 width: 100%;
+                height: 100%;
+                margin-bottom: 10px;
+            }
+
+        .carousel-control.right, .carousel-control.left {
+            background-image: none;
+            color: #ffffff;
+        }
+
+        .carousel-indicators li {
+            border-color: #ffffff;
+        }
+
+            .carousel-indicators li.active {
+                background-color: #ffffff;
+            }
+
+        .item h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            font-weight: 400;
+            font-style: italic;
+            margin: 70px 0;
+        }
+
+        .item span {
+            font-style: normal;
+        }
+
+        .panel {
+            border: 1px solid navy;
+            border-radius: 0 !important;
+            transition: box-shadow 0.5s;
+        }
+
+            .panel:hover {
+                box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+            }
+
+        .panel-footer .btn:hover {
+            border: 1px solid navy;
+            background-color: #fff !important;
+            color: navy;
+        }
+
+        .panel-heading {
+            color: #fff !important;
+            background-color: #ffffff !important;
+            padding: 25px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .panel-footer {
+            background-color: white !important;
+        }
+
+            .panel-footer h3 {
+                font-size: 32px;
+            }
+
+            .panel-footer h4 {
+                color: #aaa;
+                font-size: 14px;
+            }
+
+            .panel-footer .btn {
+                margin: 15px 0;
+                background-color: #ffffff;
+                color: #fff;
+            }
+
+        .navbar {
+            margin-bottom: 0;
+            background-color: #ffffff;
+            z-index: 9999;
+            border: 0;
+            font-size: 12px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family: Montserrat, sans-serif;
+        }
+
+            .navbar li a, .navbar .navbar-brand {
+                color: navy !important;
+            }
+
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #ffffff !important;
+            background-color: navy !important;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+        }
+
+        footer .glyphicon {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #f4511e;
+        }
+
+        .slideanim {
+            visibility: hidden;
+        }
+
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+        }
+
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateY(70%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
             }
         }
 
-        .form-horizontal {
-            max-width: 900px;
+        @-webkit-keyframes slide {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(70%);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0%);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .col-sm-4 {
+                text-align: center;
+                margin: 25px 0;
+            }
+
+            .btn-lg {
+                width: 100%;
+                margin-bottom: 35px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .logo {
+                font-size: 150px;
+            }
+        }
+
+        .parent {
+            display: table;
+            width: 100%;
+        }
+
+        .child {
+            display: table-cell;
+            vertical-align: middle;
         }
     </style>
-    @RenderSection("style", required: false)
-
-    @Scripts.Render("~/Scripts/jquery2")
-    @Scripts.Render("~/Scripts/bootstrapjs")
-    @Scripts.Render("~/Scripts/devExpressReports")
-
-    @Html.DevExpress().GetStyleSheets(
-    new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
-    new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
-    new StyleSheet { ExtensionSuite = ExtensionSuite.GridView },
-    new StyleSheet { ExtensionSuite = ExtensionSuite.TreeList }
-    )
-
-    @Html.DevExpress().GetScripts(
-    new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
-    new Script { ExtensionSuite = ExtensionSuite.Editors },
-    new Script { ExtensionSuite = ExtensionSuite.GridView },
-    new Script { ExtensionSuite = ExtensionSuite.TreeList }
-    )
-    @RenderSection("scriptHead", required: false)
-    @{
-        var clientInfo = Model as IClientInfo;
-
-        int? currentClientId = null;
-
-        if (clientInfo != null)
-        {
-            currentClientId = clientInfo.ClientID;
-        }
-        else
-        {
-            currentClientId = ViewBag.ClientId;
-        }
-    }
 </head>
-<body style="background-color: #F6F6F6;">
-    <nav class="navbar navbar-fixed-top">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img class="navbar-brand navbar-logo paddingLeft10" src="~/images/Portal-logo-gray.png" alt="Arroweye Solutions, Inc." />
-                @Html.Action("ClientHeaderCaptionPartial", "Client", new { clientId = currentClientId, pageCaption = ViewBag.Title })
+                <a class="navbar-brand" href="#myPage"><img width="300" height="58" src="care-chem-logo.png" /></a>
             </div>
-
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @if (!User.IsInRole(UserRoles.CspUser))
-                    {
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">Actions <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu" id="selClientActions">
-                                @if (currentClientId != null)
-                                {
-                                    <li><a href="@Url.Action("Index", "SelectClient" )">Select Another Client</a></li>
-                                    <li><a href="@Url.Action("Index", "PlasticCore", new { clientId = currentClientId } )">Core</a></li>
-                                    <li><a href="@Url.Action("ClientInformation", "Client", new { clientId = currentClientId })">Client Information</a></li>
-                                    
-                                    <li class="dropdown-submenu">
-                                        <a>Client Settings</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="@Url.Action("ClientGeneralSettings", "Client", new { clientId = currentClientId })">General Settings</a></li>
-                                            <li><a href="@Url.Action("ManageClient", "Client", new {clientId = currentClientId})">Manage Clients</a></li>
-                                            <li><a href="@Url.Action("Index", "ClientProfile", new {clientId = currentClientId})">Manage Client Profiles</a></li>
-                                            <li><a href="@Url.Action("Index", "RetailerProfile", new {clientId = currentClientId})">Manage Retailer Profiles</a></li>
-                                            <li><a href="@Url.Action("Index", "BCSSConfiguration", new {clientId = currentClientId})">BCSS Configurations</a></li>
-                                            <li><a href="@Url.Action("Index", "BankIDNumber", new {clientId = currentClientId})">BIN Management</a></li>
-                                            <li><a href="@Url.Action("Index", "ProofReplacement", new {clientId = currentClientId})">Default Proof Replacement</a></li>
-                                            <li><a href="@Url.Action("Index", "HotStamp", new {clientId = currentClientId})">Hot Stamps</a></li>
-                                            <li><a href="@Url.Action("Index", "InventoryConfiguration", new {clientId = currentClientId})">Inventory Configuration</a></li>
-                                            <li><a href="@Url.Action("Index", "MagTrackEncoding", new {clientId = currentClientId})">Mag Track Encodings</a></li>
-                                            <li><a href="@Url.Action("PlatformsProducts", "Client", new {clientId = currentClientId})">Platforms &amp; Products</a></li>
-                                            <li><a href="@Url.Action("Index", "PrintSettings", new {clientId = currentClientId})">Print Settings</a></li>
-                                            <li><a href="@Url.Action("Index", "ShipType", new {clientId = currentClientId})">Ship Types</a></li>
-                                        </ul>
-                                    </li>
-
-
-                                    <li><a href="@Url.Action("Index", "Product", new { clientId = currentClientId })">Products</a></li>
-                                    <li><a href="@Url.Action("Index", "SelectProgram", new { clientId = currentClientId })">Programs</a></li>
-                                    <li><a href="@Url.Action("Index", "TaskManagement", new { clientId = currentClientId })">Tasks</a></li>
-                                    
-                                    <li class="dropdown-submenu">
-                                        <a>EMV</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="@Url.Action("Index", "EmvProfile", new { clientId = currentClientId })">Issuers</a></li>
-                                            <li><a href="@Url.Action("CardProfileIndex", "EmvProfile", new { clientId = currentClientId })">Card Profiles</a></li>
-                                            <li><a href="@Url.Action("Index", "PersonalizationScript", new { clientId = currentClientId })">Scripts</a></li>
-                                            <li><a href="@Url.Action("Index", "EmvAuthentication", new { clientId = currentClientId })">Authentications</a></li>
-                                            <li><a href="@Url.Action("Index", "EmvConfiguration", new { clientId = currentClientId })">Configurations</a></li>
-                                        </ul>
-                                    </li>
-                                    @*<li class="dropdown-submenu">
-                                        <a>Settings</a>
-                                        <ul class="dropdown-menu">
-                                            
-                                        </ul>
-                                    </li>*@
-                                    <li class="dropdown-submenu">
-                                        <a>Approval</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="@Url.Action("Index", "IssuingBank", new { clientId = currentClientId })">Issuing Banks</a></li>
-                                            <li><a href="@Url.Action("Index", "AssociationApproval", new { clientID = currentClientId })">Approvals</a></li>
-                                            <li><a href="@Url.Action("ApprovalQueue", "AssociationApproval", new { clientID = currentClientId })">Approval Queues</a></li>
-                                        </ul>
-                                    </li>
-                                    
-                                    <li><a href="@Url.Action("Index", "UserManagement", new { clientId = currentClientId })">Users</a></li>
-                                    <li><a href="@Url.Action("Index", "ConfigurationHierarchy", new { clientId = currentClientId })">Config Hierarchy</a></li>
-                                    <li class="dropdown-submenu">
-                                        <a>Product Pricing</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="@Url.Action("Index", "ProductPricing", new { clientId = currentClientId })">Pricing</a></li>
-                                            <li><a href="@Url.Action("Master", "ProductPricing", new { clientId = currentClientId })">Pricing Master</a></li>
-                                            @*<li><a href="@Url.Action("UploadMaster", "ProductPricing", new { clientId = currentClientId })">Upload Product Pricing</a></li>*@
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="@Url.Action("Index", "ProgramOrders", new { clientId = currentClientId })">Orders On Hold</a></li>
-                                    <li class="dropdown-submenu">
-                                        <a>Package Component</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="@Url.Action("ManageInsert", "PackageComponent", new { clientId = currentClientId })">Manage Inserts</a></li>
-                                            <li><a href="@Url.Action("ActivationLabel", "PackageComponent", new { clientId = currentClientId })">Manage Activation Labels</a></li>
-                                        </ul>
-                                    </li>
-                                }
-                                else
-                                {
-                                    <li><a href="@Url.Action("Index", "SelectClient")">Select Client</a></li>
-                                    <li><a href="@Url.Action("Index", "PlasticCore" )">Core</a></li>
-                                    <li class="dropdown-submenu">
-                                        <a>EMV</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="@Url.Action("Index", "EmvProfile")">Issuers</a></li>
-                                            <li><a href="@Url.Action("CardProfileIndex", "EmvProfile")">Card Profiles</a></li>
-                                            <li><a href="@Url.Action("Index", "PersonalizationScript")">Scripts</a></li>
-                                            <li><a href="@Url.Action("Index", "EmvAuthentication")">Authentications</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="@Url.Action("Index", "TaskManagement")">Tasks</a></li>
-                                }
-                            </ul>
-                        </li>
-                        @RenderSection("navbarNavItems", required: false)
-                    }
-                </ul>
-                @if (User.IsInRole(UserRoles.CspUser))
-                {
-                    <span style="visibility:hidden;display:none">
-                        @RenderSection("navbarNavItems", required: false)
-                    </span>
-                }
+            <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    @if (User.IsInRole(UserRoles.CspUser))
-                    {
-                        <li class="nav-item">
-                            <a>@User.Identity.Name</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item hidden-md hidden-sm">
-                            <a>@User.Identity.Name</a>
-                        </li>
-                        <li class="nav-item hidden-md hidden-sm">
-                            <a href="@Url.Action("Index", "Logout" )" style="color:white;margin-right:4px"><span class="glyphicon glyphicon-log-out"></span></a>
-                        </li>
-                        <li class="dropdown visible-md visible-sm">
-                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">User <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li class="nav-item">
-                                    <a>@User.Identity.Name</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="@Url.Action("Index", "Logout" )"><span class="glyphicon glyphicon-log-out"></span></a>
-                                </li>
-                            </ul>
-                        </li>
-                    }
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#products">PRODUCTS</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <div class="container marginTop50" id="divContainer">
-        @if (IsSectionDefined("pageHeader"))
-        {
-            <div class="page-header">
-                @RenderSection("pageHeader", required: false)
+    <div class="jumbotron text-center">
+        <img src="jumbotron-bg.PNG" style="margin-top:30px;margin-bottom:30px" />
+    </div>
+    <!--<div class="jumbotron text-center">
+        <div style="vertical-align:bottom" class="parent">
+            <div style="float:left;background-image:url('baby-feet.jpeg');height:350px;" class="col-lg-4 col-sm-4 hidden-xs child">
+                <img src="baby-feet.jpeg" />
             </div>
-        }
-        <div id="divContent">
-            @RenderBody()
+            <div style="float:left;height:250px;margin-top:100px" class="col-lg-4 col-sm-4 child">
+                <h2 style="color:navy">
+                    WELCOME TO<br />
+                    <br />
+                    <img src="name.png" style="vertical-align:middle" />
+                </h2>
+            </div>
+            <div style="float:left;background-image:url('hand.jpeg');height:350px;" class="col-lg-4 col-sm-4 hidden-xs child">
+            </div>
+            <br style="clear: left;" />
+        </div>
+    </div>-->
+    <!-- Container (About Section) -->
+    <div id="home" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Home</h2><br>
+                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <br><a href="#contact" class="btn btn-default">Get in Touch</a>
+            </div>
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-signal logo"></span>
+            </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            @Html.DevExpress().Label(settings =>
-            {
-                settings.EncodeHtml = false;
-                settings.Text = DateTime.Now.Year + " &copy; Arroweye Solutions, Inc.";
-            }).GetHtml()
+    <div id="about">
+        <div class="container-fluid bg-grey">
+            <div class="row">
+                <div class="col-sm-4">
+                    <span class="glyphicon glyphicon-globe logo slideanim"></span>
+                </div>
+                <div class="col-sm-8">
+                    <h2>About US</h2><br>
+                    <h4><strong>Our Values:</strong></h4><br>
+                    <h4><strong>Mission:</strong></h4>Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
+                    <h4><strong>Vision:</strong></h4>
+                    <p>
+
+                        vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <!-- Container (Products Section) -->
+    <div id="products" class="container-fluid text-center">
+        <h2>Products</h2>
+        <h4>What we offer</h4>
+        <br>
+        <div class="row slideanim">
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-off logo-small"></span>
+                <h4>POWER</h4>
+                <p>Lorem ipsum dolor sit amet..</p>
+            </div>
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-heart logo-small"></span>
+                <h4>LOVE</h4>
+                <p>Lorem ipsum dolor sit amet..</p>
+            </div>
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-lock logo-small"></span>
+                <h4>JOB DONE</h4>
+                <p>Lorem ipsum dolor sit amet..</p>
+            </div>
+        </div>
+        <br><br>
+        <div class="row slideanim">
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-leaf logo-small"></span>
+                <h4>GREEN</h4>
+                <p>Lorem ipsum dolor sit amet..</p>
+            </div>
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-certificate logo-small"></span>
+                <h4>CERTIFIED</h4>
+                <p>Lorem ipsum dolor sit amet..</p>
+            </div>
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-wrench logo-small"></span>
+                <h4 style="color:#303030;">HARD WORK</h4>
+                <p>Lorem ipsum dolor sit amet..</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container (Contact Section) -->
+    <div id="contact" class="container-fluid bg-grey">
+        <h2 class="text-center">CONTACT</h2>
+        <div class="row">
+            <div class="col-sm-5">
+                <p>Contact us and we'll get back to you...</p>
+                <p><span class="glyphicon glyphicon-map-marker"></span> Level 13, Platinum Techno Park, <br />&nbsp;&nbsp; &nbsp;Plot No. 17 & 18, <br />&nbsp;&nbsp;&nbsp;Sector 30 Vashi, <br />&nbsp;&nbsp;&nbsp;Navi Mumbai, INDIA</p>
+                <p><span class="glyphicon glyphicon-phone"></span> +91 22 61818487</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+            </div>
+            <div class="col-sm-7 slideanim">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSczo4PIubkCylVmOE2yfXA6WnEp4efqf_oWuuhdmE5Je6faJw/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Google Maps -->
+    <!--<div id="googleMap" style="height:400px;width:100%;"></div>
+    <script>
+        function myMap() {
+            var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+            var mapProp = { center: myCenter, zoom: 12, scrollwheel: false, draggable: false, mapTypeId: google.maps.MapTypeId.ROADMAP };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            var marker = new google.maps.Marker({ position: myCenter });
+            marker.setMap(map);
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>-->
+    <!--
+    To use this code on your website, get a free API key from Google.
+    Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+    -->
+
+    <footer class="container-fluid text-center">
+        <a href="#myPage" title="To Top">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+        <p><a href="http://www.carechemcorp.in/" title="CareCHEM Corporation">Copyright &copy; &nbsp; 2018 CareCHEM Corporation - All Rights Reserved</a></p>
     </footer>
 
-    <script type="text/javascript" src="~/Scripts/SideNav.js"></script>
-    <script type="text/javascript">
+    <script>
         $(document).ready(function () {
-            var title = "@ViewBag.Title";
-            if (title.length > 0) {
-                $("#txtDash").show();
-            }
-        });
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
 
-        $("#btnMenu").on('click', function () {
-            if ($("#mySideNav").width() == 0) {
-                openNav();
-            } else {
-                closeNav();
-            }
-        });
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+
+            $(window).scroll(function () {
+                $(".slideanim").each(function () {
+                    var pos = $(this).offset().top;
+
+                    var winTop = $(window).scrollTop();
+                    if (pos < winTop + 600) {
+                        $(this).addClass("slide");
+                    }
+                });
+            });
+        })
     </script>
-    @RenderSection("script", required: false)
+
 </body>
 </html>

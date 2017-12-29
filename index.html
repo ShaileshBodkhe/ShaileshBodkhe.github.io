@@ -1,100 +1,340 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+@using System.Web.Optimization
+@using ASI.Portal3.Data
+@using ASI.Portal3.Mvc.Models
+@using ASI.Portal3.Data.Models
+
+<!DOCTYPE html>
+<html>
 <head>
-    <title>Hello, world!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>@ViewBag.Title</title>
+    @RenderSection("head", required: false)
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/AsiCss")
+    <link href="~/Content/SideNav.css" rel="stylesheet">
+    <link href="~/Content/themes/default/style.css" rel="stylesheet">
     <style type="text/css">
-    .body
-    {
-        font-family:Verdana;
-    }
-    .menu
-    {
-        color: white;
-        
-    }
-    .menu:hover{
-        background-color:gray;
-        color:black;
-    }
-    .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
-        background-color:gray;
-    }
-    </style>
-</head>
-<body class="body">
+        .headerFont {
+            font-size: 16px;
+            line-height: 1.5625;
+            font-family: proxima-nova, "helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #808080;
+        }
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
+        html {
+            min-height: 100%;
+            position: relative;
+        }
+
+        body {
+            margin-bottom: 20px;
+        }
+
+        .marginTop50 {
+            margin-top: 60px;
+        }
+
+        .navbar-toggle, .icon-bar {
+            border: 1px solid white;
+        }
+
+        .nav > li > a:hover, .nav > li > a:focus {
+            text-decoration: none;
+            background-color: #009da5;
+        }
+
+        .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+            background-color: #009da5;
+            border-color: #337ab7;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+            .dropdown-submenu > .dropdown-menu {
+                top: 0;
+                left: 100%;
+                margin-top: -6px;
+                margin-left: -1px;
+                -webkit-border-radius: 0 6px 6px 6px;
+                -moz-border-radius: 0 6px 6px 6px;
+                border-radius: 0 6px 6px 6px;
+            }
+
+            .dropdown-submenu:hover > .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-submenu > a:after {
+                display: block;
+                content: " ";
+                float: right;
+                width: 0;
+                height: 0;
+                border-color: transparent;
+                border-style: solid;
+                border-width: 5px 0 5px 5px;
+                border-left-color: #cccccc;
+                margin-top: 5px;
+                margin-right: -10px;
+            }
+
+            .dropdown-submenu:hover > a:after {
+                border-left-color: #ffffff;
+            }
+
+            .dropdown-submenu.pull-left {
+                float: none;
+            }
+
+                .dropdown-submenu.pull-left > .dropdown-menu {
+                    left: -100%;
+                    margin-left: 10px;
+                    -webkit-border-radius: 6px 0 6px 6px;
+                    -moz-border-radius: 6px 0 6px 6px;
+                    border-radius: 6px 0 6px 6px;
+                }
+
+        @@media (min-width: 1000px) {
+            .container {
+                width: 100%;
+            }
+        }
+
+        .form-horizontal {
+            max-width: 900px;
+        }
+    </style>
+    @RenderSection("style", required: false)
+
+    @Scripts.Render("~/Scripts/jquery2")
+    @Scripts.Render("~/Scripts/bootstrapjs")
+    @Scripts.Render("~/Scripts/devExpressReports")
+
+    @Html.DevExpress().GetStyleSheets(
+    new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+    new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+    new StyleSheet { ExtensionSuite = ExtensionSuite.GridView },
+    new StyleSheet { ExtensionSuite = ExtensionSuite.TreeList }
+    )
+
+    @Html.DevExpress().GetScripts(
+    new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+    new Script { ExtensionSuite = ExtensionSuite.Editors },
+    new Script { ExtensionSuite = ExtensionSuite.GridView },
+    new Script { ExtensionSuite = ExtensionSuite.TreeList }
+    )
+    @RenderSection("scriptHead", required: false)
+    @{
+        var clientInfo = Model as IClientInfo;
+
+        int? currentClientId = null;
+
+        if (clientInfo != null)
+        {
+            currentClientId = clientInfo.ClientID;
+        }
+        else
+        {
+            currentClientId = ViewBag.ClientId;
+        }
+    }
+</head>
+<body style="background-color: #F6F6F6;">
+    <nav class="navbar navbar-fixed-top">
+        <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#" style="color:white">CareCHEM Corporation</a>
-                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <img class="navbar-brand navbar-logo paddingLeft10" src="~/images/Portal-logo-gray.png" alt="Arroweye Solutions, Inc." />
+                @Html.Action("ClientHeaderCaptionPartial", "Client", new { clientId = currentClientId, pageCaption = ViewBag.Title })
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav nav-pills head-menu pull-right">
-                <li class="active"><a class="menu" href="/index.html">HOME</a></li>
-                <li><a href="/aboutus.html">ABOUT&nbsp;US</a></li>
-                <li><a class="menu" href="/product.html">PRODUCTS & SERVICES</a></li>
-                <li><a class="menu"  href="/contactus.html">CONTACT US</a></li>
-            </ul>
-        </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (!User.IsInRole(UserRoles.CspUser))
+                    {
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">Actions <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" id="selClientActions">
+                                @if (currentClientId != null)
+                                {
+                                    <li><a href="@Url.Action("Index", "SelectClient" )">Select Another Client</a></li>
+                                    <li><a href="@Url.Action("Index", "PlasticCore", new { clientId = currentClientId } )">Core</a></li>
+                                    <li><a href="@Url.Action("ClientInformation", "Client", new { clientId = currentClientId })">Client Information</a></li>
+                                    
+                                    <li class="dropdown-submenu">
+                                        <a>Client Settings</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Action("ClientGeneralSettings", "Client", new { clientId = currentClientId })">General Settings</a></li>
+                                            <li><a href="@Url.Action("ManageClient", "Client", new {clientId = currentClientId})">Manage Clients</a></li>
+                                            <li><a href="@Url.Action("Index", "ClientProfile", new {clientId = currentClientId})">Manage Client Profiles</a></li>
+                                            <li><a href="@Url.Action("Index", "RetailerProfile", new {clientId = currentClientId})">Manage Retailer Profiles</a></li>
+                                            <li><a href="@Url.Action("Index", "BCSSConfiguration", new {clientId = currentClientId})">BCSS Configurations</a></li>
+                                            <li><a href="@Url.Action("Index", "BankIDNumber", new {clientId = currentClientId})">BIN Management</a></li>
+                                            <li><a href="@Url.Action("Index", "ProofReplacement", new {clientId = currentClientId})">Default Proof Replacement</a></li>
+                                            <li><a href="@Url.Action("Index", "HotStamp", new {clientId = currentClientId})">Hot Stamps</a></li>
+                                            <li><a href="@Url.Action("Index", "InventoryConfiguration", new {clientId = currentClientId})">Inventory Configuration</a></li>
+                                            <li><a href="@Url.Action("Index", "MagTrackEncoding", new {clientId = currentClientId})">Mag Track Encodings</a></li>
+                                            <li><a href="@Url.Action("PlatformsProducts", "Client", new {clientId = currentClientId})">Platforms &amp; Products</a></li>
+                                            <li><a href="@Url.Action("Index", "PrintSettings", new {clientId = currentClientId})">Print Settings</a></li>
+                                            <li><a href="@Url.Action("Index", "ShipType", new {clientId = currentClientId})">Ship Types</a></li>
+                                        </ul>
+                                    </li>
+
+
+                                    <li><a href="@Url.Action("Index", "Product", new { clientId = currentClientId })">Products</a></li>
+                                    <li><a href="@Url.Action("Index", "SelectProgram", new { clientId = currentClientId })">Programs</a></li>
+                                    <li><a href="@Url.Action("Index", "TaskManagement", new { clientId = currentClientId })">Tasks</a></li>
+                                    
+                                    <li class="dropdown-submenu">
+                                        <a>EMV</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Action("Index", "EmvProfile", new { clientId = currentClientId })">Issuers</a></li>
+                                            <li><a href="@Url.Action("CardProfileIndex", "EmvProfile", new { clientId = currentClientId })">Card Profiles</a></li>
+                                            <li><a href="@Url.Action("Index", "PersonalizationScript", new { clientId = currentClientId })">Scripts</a></li>
+                                            <li><a href="@Url.Action("Index", "EmvAuthentication", new { clientId = currentClientId })">Authentications</a></li>
+                                            <li><a href="@Url.Action("Index", "EmvConfiguration", new { clientId = currentClientId })">Configurations</a></li>
+                                        </ul>
+                                    </li>
+                                    @*<li class="dropdown-submenu">
+                                        <a>Settings</a>
+                                        <ul class="dropdown-menu">
+                                            
+                                        </ul>
+                                    </li>*@
+                                    <li class="dropdown-submenu">
+                                        <a>Approval</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Action("Index", "IssuingBank", new { clientId = currentClientId })">Issuing Banks</a></li>
+                                            <li><a href="@Url.Action("Index", "AssociationApproval", new { clientID = currentClientId })">Approvals</a></li>
+                                            <li><a href="@Url.Action("ApprovalQueue", "AssociationApproval", new { clientID = currentClientId })">Approval Queues</a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><a href="@Url.Action("Index", "UserManagement", new { clientId = currentClientId })">Users</a></li>
+                                    <li><a href="@Url.Action("Index", "ConfigurationHierarchy", new { clientId = currentClientId })">Config Hierarchy</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a>Product Pricing</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Action("Index", "ProductPricing", new { clientId = currentClientId })">Pricing</a></li>
+                                            <li><a href="@Url.Action("Master", "ProductPricing", new { clientId = currentClientId })">Pricing Master</a></li>
+                                            @*<li><a href="@Url.Action("UploadMaster", "ProductPricing", new { clientId = currentClientId })">Upload Product Pricing</a></li>*@
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="@Url.Action("Index", "ProgramOrders", new { clientId = currentClientId })">Orders On Hold</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a>Package Component</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Action("ManageInsert", "PackageComponent", new { clientId = currentClientId })">Manage Inserts</a></li>
+                                            <li><a href="@Url.Action("ActivationLabel", "PackageComponent", new { clientId = currentClientId })">Manage Activation Labels</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li><a href="@Url.Action("Index", "SelectClient")">Select Client</a></li>
+                                    <li><a href="@Url.Action("Index", "PlasticCore" )">Core</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a>EMV</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Action("Index", "EmvProfile")">Issuers</a></li>
+                                            <li><a href="@Url.Action("CardProfileIndex", "EmvProfile")">Card Profiles</a></li>
+                                            <li><a href="@Url.Action("Index", "PersonalizationScript")">Scripts</a></li>
+                                            <li><a href="@Url.Action("Index", "EmvAuthentication")">Authentications</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="@Url.Action("Index", "TaskManagement")">Tasks</a></li>
+                                }
+                            </ul>
+                        </li>
+                        @RenderSection("navbarNavItems", required: false)
+                    }
+                </ul>
+                @if (User.IsInRole(UserRoles.CspUser))
+                {
+                    <span style="visibility:hidden;display:none">
+                        @RenderSection("navbarNavItems", required: false)
+                    </span>
+                }
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.IsInRole(UserRoles.CspUser))
+                    {
+                        <li class="nav-item">
+                            <a>@User.Identity.Name</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item hidden-md hidden-sm">
+                            <a>@User.Identity.Name</a>
+                        </li>
+                        <li class="nav-item hidden-md hidden-sm">
+                            <a href="@Url.Action("Index", "Logout" )" style="color:white;margin-right:4px"><span class="glyphicon glyphicon-log-out"></span></a>
+                        </li>
+                        <li class="dropdown visible-md visible-sm">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">User <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="nav-item">
+                                    <a>@User.Identity.Name</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index", "Logout" )"><span class="glyphicon glyphicon-log-out"></span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
         </div>
     </nav>
-<div class="container-fluid">
-    <div class="row">        
-        <div class="jumbotron">
-            <p>
-        Welcome to the website of <b>CareCHEM Corporation.</b>
-    </p>
-        <p>
-        <b>CareCHEM Corporation</b>, a specialty chemical company offering services of sales,
-            marketing, sourcing & distribution of specialty chemicals. We are
-            headquartered at Navi Mumbai with well equipped warehouse at Bhiwandi.
-        </p>
-        
-        <p>
-            We partner with international & domestic manufacturers of Home & Personal
-            Care ingredients & offer an extensive range of specialty chemicals backed with
-            complete technical & logistic support.
-        </p>
-        <p>
-            We specialize in this market and have developed an in-depth understanding of
-            the market dynamics. Our Global contacts, knowledge of the relevant chemistry
-            and industry enable us to provide high quality products, services and technical
-            support to our customers.
-        </p>
 
-        <p>
-            Passionate & enthusiastic professionals with over 15 plus years of experience in
-            Home & Personal Care industry; understands current trends, market dynamics &
-            work in close association with product development scientists. Currently
-            catering to Home & Personal Care industry.
-        </p>
-        <p>
-            Founder had an experience with leading Indian & MNC organisations managing
-            sales & business development in India, Sri Lanka, Bangladesh, Nepal & Myanmar.
-            Worked at a senior position building strong industry network & customer
-            relationship.
-        </p>
-        <p>
-            We are committed to building beneficial partnerships with customers,
-            employees and principles.
-        </p>
-        <p>
-            With rich experience in performance & specialty ingredient business, we are
-            also expanding our offerings to the other industries which includes
-        </p>
+    <div class="container marginTop50" id="divContainer">
+        @if (IsSectionDefined("pageHeader"))
+        {
+            <div class="page-header">
+                @RenderSection("pageHeader", required: false)
+            </div>
+        }
+        <div id="divContent">
+            @RenderBody()
+        </div>
     </div>
-    </div>
-</div>
+
+    <footer class="footer">
+        <div class="container">
+            @Html.DevExpress().Label(settings =>
+            {
+                settings.EncodeHtml = false;
+                settings.Text = DateTime.Now.Year + " &copy; Arroweye Solutions, Inc.";
+            }).GetHtml()
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="~/Scripts/SideNav.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var title = "@ViewBag.Title";
+            if (title.length > 0) {
+                $("#txtDash").show();
+            }
+        });
+
+        $("#btnMenu").on('click', function () {
+            if ($("#mySideNav").width() == 0) {
+                openNav();
+            } else {
+                closeNav();
+            }
+        });
+    </script>
+    @RenderSection("script", required: false)
 </body>
 </html>

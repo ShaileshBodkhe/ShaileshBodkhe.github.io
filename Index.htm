@@ -1,0 +1,643 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Theme Made By www.w3schools.com - No Copyright -->
+    <title>CareCHEM Corporation | A specialty chemical company offering services of sales, marketing, sourcing & distribution of specialty chemicals</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>    
+    <meta name="author" content="carechemcorporation"/>
+    <meta property="og:url" content="http://www.carechemcorp.in/"/>
+    <meta property="og:site_name" content="CareCHEM Corporation"/>
+    <meta property="og:title" content="Welcome to CareCHEM Corporation"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="CareCHEMCorporation"/>
+    <meta name="twitter:description" content="Welcome to CareCHEM Corporation"/>
+    <meta name="twitter:image:alt" content="CareCHEM Corporation"/>
+    <meta name="description" content="CareCHEM Corporation, a specialty chemical company offering services of sales, marketing, sourcing & distribution of specialty chemicals. We are headquartered at Vashi, Navi Mumbai. We partner with international & domestic manufacturers of Home & Personal Care ingredients."/>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- crisp -->
+    <!-- <script type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "38aa1da2-d02e-4aaa-b1d1-103bc8537418"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script> -->
+
+    <style>
+        body {
+            font: 400 15px Montserrat, sans-serif;
+            line-height: 1.8;
+            color: navy
+        }
+
+        h2 {
+            font-size: 24px;
+            text-transform: uppercase;
+            color: #303030;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            color: #303030;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .jumbotron {
+            background-color: #ffffff;
+            color: navy;
+            padding: 100px 25px;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .container-fluid {
+            padding: 60px 50px;
+        }
+
+        .bg-grey {
+            background-color: #f6f6f6;
+        }
+
+        .logo-small {
+            color: #ffffff;
+            font-size: 50px;
+        }
+
+        .logo {
+            color: navy;
+            font-size: 200px;
+        }
+
+        .thumbnail {
+            padding: 0 0 15px 0;
+            border: none;
+            border-radius: 0;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 10px;
+        }
+
+        .carousel-control.right,
+        .carousel-control.left {
+            background-image: none;
+            color: #ffffff;
+        }
+
+        .carousel-indicators li {
+            border-color: #ffffff;
+        }
+
+        .carousel-indicators li.active {
+            background-color: #ffffff;
+        }
+
+        .item h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            font-weight: 400;
+            font-style: italic;
+            margin: 70px 0;
+        }
+
+        .item span {
+            font-style: normal;
+        }
+
+        .panel {
+            border: 1px solid navy;
+            border-radius: 0 !important;
+            transition: box-shadow 0.5s;
+        }
+
+        .panel:hover {
+            box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
+        }
+
+        .panel-footer .btn:hover {
+            border: 1px solid navy;
+            background-color: #fff !important;
+            color: navy;
+        }
+
+        .panel-heading {
+            color: #fff !important;
+            background-color: #ffffff !important;
+            padding: 25px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .panel-footer {
+            background-color: white !important;
+        }
+
+        .panel-footer h3 {
+            font-size: 32px;
+        }
+
+        .panel-footer h4 {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .panel-footer .btn {
+            margin: 15px 0;
+            background-color: #ffffff;
+            color: #fff;
+        }
+
+        .navbar {
+            margin-bottom: 0;
+            background-color: #ffffff;
+            z-index: 9999;
+            border: 0;
+            font-size: 12px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .navbar li a,
+        .navbar .navbar-brand {
+            color: navy !important;
+        }
+
+        .navbar-nav li a:hover,
+        .navbar-nav li.active a {
+            color: #ffffff !important;
+            background-color: navy !important;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+        }
+
+        footer .glyphicon {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #f4511e;
+        }
+
+        .slideanim {
+            visibility: hidden;
+        }
+
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+        }
+
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateY(70%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+
+        @-webkit-keyframes slide {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(70%);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0%);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .col-sm-4 {
+                text-align: center;
+                margin: 25px 0;
+            }
+
+            .btn-lg {
+                width: 100%;
+                margin-bottom: 35px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .logo {
+                font-size: 150px;
+            }
+        }
+
+        @media screen and (max-width: 1080px) {
+            .logo {
+                font-size: 150px;
+            }
+        }
+
+        .parent {
+            display: table;
+            width: 100%;
+        }
+
+        .child {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#myPage">
+                    <img width="300" height="68" src="care-chem-logo.png" />
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-target="#myNavbar">
+                        <a href="#contact">
+                            <b>CONTACT US</b>
+                        </a>
+                        <a href="#products" style="visibility: hidden">
+                            <b>Products</b>
+                        </a>
+                        <a href="#home" style="visibility: hidden">
+                            <b>Home</b>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container (Contact Section) -->
+      <div id="products">
+    </div>
+      <div id="home">
+    </div>
+    <div id="contact" class="container-fluid bg-grey">
+        <div style="text-align:center;float: left;vertical-align:middle;margin-top:10%;color: navy" class="col-sm-12 col-md-5 col-lg-5">
+            <h1>
+                <b> Welcome to CareCHEM Corporation</b>
+            </h1>
+            This space is still under construction, but we are available for business. Please write to us and we will get back soon &nbsp;
+            <br>
+            <!-- <span>
+                <img src="images/arrow.jpg"
+            </span> -->
+        </div>
+
+
+        <div style="text-align:center;" class="col-sm-12 col-md-6 col-lg-6">
+            <div>
+                <h2 style="color:navy" class="text-center">
+                    <b>CONTACT US</b>
+                </h2>
+                <p>
+                    <span class="glyphicon glyphicon-map-marker"></span> Level 13, Platinum Techno Park,
+                    <br />&nbsp;&nbsp; &nbsp;Plot No. 17 & 18,
+                    <br />&nbsp;&nbsp;&nbsp;Sector 30 Vashi, 400705
+                    <br />&nbsp;&nbsp;&nbsp;Navi Mumbai, INDIA</p>
+                <p>
+                    <span class="glyphicon glyphicon-phone-alt"></span> &nbsp;+91 22 61818487</p>
+                <p>
+                    <span class="glyphicon glyphicon-phone"></span> &nbsp;+91 9867330851</p>
+                <p>
+                    <span class="glyphicon glyphicon-envelope"></span> &nbsp; <a href="mailto:sales@carechemcorp.in">sales@carechemcorp.in</a></p>
+                <br/>
+                <br/>
+            </div>
+            <div style="margin-left:-10px">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScRdoQ54qn-yzNO6MwApVDjgYXCIiGscifOd1EGerFxCspcow/viewform?embedded=true"
+                    width="400px" height="500px"  frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+            </div>
+         
+        </div>
+        <div>
+              
+                
+                <!-- <form action="https://docs.google.com/forms/d/e/1FAIpQLScRdoQ54qn-yzNO6MwApVDjgYXCIiGscifOd1EGerFxCspcow/formResponse" target="_self"
+                    method="POST" id="mG61Hd">
+                    <div class="freebirdFormviewerViewFormCard">
+                        <div class="freebirdFormviewerViewAccentBanner freebirdAccentBackground"></div>
+                        <div class="freebirdFormviewerViewFormContent ">
+                            <div class=freebirdFormviewerViewNoPadding>
+                                <div class="freebirdFormviewerViewHeaderHeader">
+                                    <div class="freebirdFormviewerViewHeaderTitleRow">
+                                        <div class="freebirdFormviewerViewHeaderTitle freebirdCustomFont" dir="auto" role="heading"
+                                            aria-level="1"><h1> Write to us, we will get back soon</h1></div>
+                                    </div>
+                                    <div jsname="F0H8Yc" class="freebirdCommonViewSecurequizSecureQuizBannerContainer"></div>
+                                    <div class="freebirdFormviewerViewHeaderRequiredLegend" aria-hidden="true" dir="auto">*Required</div>
+                                </div>
+                            </div>
+                            <div class=freebirdFormviewerViewItemList role="list">
+                                <div role="listitem" class="freebirdFormviewerViewItemsItemItem freebirdFormviewerViewItemsTextTextItem"
+                                    jsname="ibnC6b" jscontroller="rDGJeb" jsaction="sPvj8e:e4JwSe,vwKRrd;" data-required="true"
+                                    data-item-id="257913577">
+                                    <div class="freebirdFormviewerViewItemsItemItemHeader">
+                                        <div class="freebirdFormviewerViewItemsItemItemTitleContainer">
+                                            <div class="freebirdFormviewerViewItemsItemItemTitle freebirdCustomFont" dir="auto"
+                                                role="heading" aria-level="2" aria-describedby="i.desc.257913577 i3">Name
+                                                <span class="freebirdFormviewerViewItemsItemRequiredAsterisk" aria-label="Required question">*</span>
+                                            </div>
+                                            <div class="freebirdFormviewerViewItemsItemItemHelpText" id="i.desc.257913577"
+                                                dir="auto"></div>
+                                        </div>
+                                    </div>
+                                    <div class="freebirdFormviewerViewItemsTextItemWrapper">
+                                        <div class="quantumWizTextinputPaperinputEl freebirdFormviewerViewItemsTextShortText freebirdThemedInput"
+                                            jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV;"
+                                            jsshadow jsname="W85ice">
+                                            <div class="quantumWizTextinputPaperinputMainContent exportContent">
+                                                <div class="quantumWizTextinputPaperinputContentArea exportContentArea">
+                                                    <div class="quantumWizTextinputPaperinputInputArea">
+                                                        <input type="text" class="quantumWizTextinputPaperinputInput exportInput"
+                                                            jsname="YPqjbf" autocomplete="off" tabindex="0" aria-label="Name"
+                                                            aria-describedby="i.desc.257913577 i.err.257913577" name="entry.303949966"
+                                                            value="" required dir="auto" data-initial-dir="auto" data-initial-value=""
+                                                        />
+                                                        
+                                                    </div>
+                                                    <div class="quantumWizTextinputPaperinputUnderline exportUnderline"></div>
+                                                    <div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline"></div>
+                                                </div>
+                                            </div>
+                                            <div class="quantumWizTextinputPaperinputCounterErrorHolder">
+                                                <div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="freebirdFormviewerViewItemsItemGradingGradingBox freebirdFormviewerViewItemsItemGradingFeedbackBox"
+                                        jsname="R7fTud"></div>
+                                    <div jsname="XbIQze" class="freebirdFormviewerViewItemsItemErrorMessage" id="i.err.257913577"
+                                        role="alert"></div>
+                                </div>
+                                <div role="listitem" class="freebirdFormviewerViewItemsItemItem freebirdFormviewerViewItemsTextTextItem"
+                                    jsname="ibnC6b" jscontroller="rDGJeb" jsaction="sPvj8e:e4JwSe,vwKRrd;" data-required="true"
+                                    data-item-id="1084867244">
+                                    <div class="freebirdFormviewerViewItemsItemItemHeader">
+                                        <div class="freebirdFormviewerViewItemsItemItemTitleContainer">
+                                            <div class="freebirdFormviewerViewItemsItemItemTitle freebirdCustomFont" dir="auto"
+                                                role="heading" aria-level="2" aria-describedby="i.desc.1084867244 i6">Email
+                                                <span class="freebirdFormviewerViewItemsItemRequiredAsterisk" aria-label="Required question">*</span>
+                                            </div>
+                                            <div class="freebirdFormviewerViewItemsItemItemHelpText" id="i.desc.1084867244"
+                                                dir="auto"></div>
+                                        </div>
+                                    </div>
+                                    <div class="freebirdFormviewerViewItemsTextItemWrapper">
+                                        <div class="quantumWizTextinputPaperinputEl freebirdFormviewerViewItemsTextShortText freebirdThemedInput"
+                                            jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV;"
+                                            jsshadow jsname="W85ice">
+                                            <div class="quantumWizTextinputPaperinputMainContent exportContent">
+                                                <div class="quantumWizTextinputPaperinputContentArea exportContentArea">
+                                                    <div class="quantumWizTextinputPaperinputInputArea">
+                                                        <input type="text" class="quantumWizTextinputPaperinputInput exportInput"
+                                                            jsname="YPqjbf" autocomplete="off" tabindex="0" aria-label="Email"
+                                                            aria-describedby="i.desc.1084867244 i.err.1084867244" name="entry.1979024631"
+                                                            value="" required dir="auto" data-initial-dir="auto" data-initial-value=""
+                                                        />
+                                                        
+                                                    </div>
+                                                    <div class="quantumWizTextinputPaperinputUnderline exportUnderline"></div>
+                                                    <div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline"></div>
+                                                </div>
+                                            </div>
+                                            <div class="quantumWizTextinputPaperinputCounterErrorHolder">
+                                                <div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="freebirdFormviewerViewItemsItemGradingGradingBox freebirdFormviewerViewItemsItemGradingFeedbackBox"
+                                        jsname="R7fTud"></div>
+                                    <div jsname="XbIQze" class="freebirdFormviewerViewItemsItemErrorMessage" id="i.err.1084867244"
+                                        role="alert"></div>
+                                </div>
+                                <div role="listitem" class="freebirdFormviewerViewItemsItemItem freebirdFormviewerViewItemsTextTextItem"
+                                    jsname="ibnC6b" jscontroller="rDGJeb" jsaction="sPvj8e:e4JwSe,vwKRrd;" data-item-id="1355058564">
+                                    <div class="freebirdFormviewerViewItemsItemItemHeader">
+                                        <div class="freebirdFormviewerViewItemsItemItemTitleContainer">
+                                            <div class="freebirdFormviewerViewItemsItemItemTitle freebirdCustomFont" dir="auto"
+                                                role="heading" aria-level="2" aria-describedby="i.desc.1355058564">Address</div>
+                                            <div class="freebirdFormviewerViewItemsItemItemHelpText" id="i.desc.1355058564"
+                                                dir="auto"></div>
+                                        </div>
+                                    </div>
+                                    <div class="quantumWizTextinputPapertextareaEl modeLight freebirdFormviewerViewItemsTextLongText freebirdThemedInput"
+                                        jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV;"
+                                        jsshadow jsname="W85ice">
+                                        <div class="quantumWizTextinputPapertextareaMainContent exportContent">
+                                            
+                                            <div class="quantumWizTextinputPapertextareaContentArea exportContentArea">
+                                                <textarea class="quantumWizTextinputPapertextareaInput exportTextarea" jsname="YPqjbf"
+                                                    data-rows="1" tabindex="0" aria-label="Address" jscontroller="gZjhIf" jsaction="input:Lg5SV;ti6hGc:XMgOHc;rcuQ6b:WYd;"
+                                                    name="entry.254467110" dir="auto" data-initial-dir="auto" data-initial-value=""></textarea>
+                                            </div>
+                                            <div class="quantumWizTextinputPapertextareaUnderline exportUnderline"></div>
+                                            <div jsname="XmnwAc" class="quantumWizTextinputPapertextareaFocusUnderline exportFocusUnderline"></div>
+                                        </div>
+                                        <div class="quantumWizTextinputPapertextareaCounterErrorHolder">
+                                            <div jsname="ty6ygf" class="quantumWizTextinputPapertextareaHint exportHint"></div>
+                                        </div>
+                                    </div>
+                                    <div class="freebirdFormviewerViewItemsItemGradingGradingBox freebirdFormviewerViewItemsItemGradingFeedbackBox"
+                                        jsname="R7fTud"></div>
+                                    <div jsname="XbIQze" class="freebirdFormviewerViewItemsItemErrorMessage" id="i.err.1355058564"
+                                        role="alert"></div>
+                                </div>
+                                <div role="listitem" class="freebirdFormviewerViewItemsItemItem freebirdFormviewerViewItemsTextTextItem"
+                                    jsname="ibnC6b" jscontroller="rDGJeb" jsaction="sPvj8e:e4JwSe,vwKRrd;" data-required="true"
+                                    data-item-id="1417866112">
+                                    <div class="freebirdFormviewerViewItemsItemItemHeader">
+                                        <div class="freebirdFormviewerViewItemsItemItemTitleContainer">
+                                            <div class="freebirdFormviewerViewItemsItemItemTitle freebirdCustomFont" dir="auto"
+                                                role="heading" aria-level="2" aria-describedby="i.desc.1417866112 i12">Contact Number
+                                                <span class="freebirdFormviewerViewItemsItemRequiredAsterisk"
+                                                    aria-label="Required question">*</span>
+                                            </div>
+                                            <div class="freebirdFormviewerViewItemsItemItemHelpText" id="i.desc.1417866112"
+                                                dir="auto"></div>
+                                        </div>
+                                    </div>
+                                    <div class="freebirdFormviewerViewItemsTextItemWrapper">
+                                        <div class="quantumWizTextinputPaperinputEl freebirdFormviewerViewItemsTextShortText freebirdThemedInput"
+                                            jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV;"
+                                            jsshadow jsname="W85ice">
+                                            <div class="quantumWizTextinputPaperinputMainContent exportContent">
+                                                <div class="quantumWizTextinputPaperinputContentArea exportContentArea">
+                                                    <div class="quantumWizTextinputPaperinputInputArea">
+                                                        <input type="text" class="quantumWizTextinputPaperinputInput exportInput"
+                                                            jsname="YPqjbf" autocomplete="off" tabindex="0" aria-label="Contact Number"
+                                                            aria-describedby="i.desc.1417866112 i.err.1417866112" name="entry.361771295"
+                                                            value="" required dir="auto" data-initial-dir="auto" data-initial-value=""
+                                                        />
+                                                        
+                                                    </div>
+                                                    <div class="quantumWizTextinputPaperinputUnderline exportUnderline"></div>
+                                                    <div jsname="XmnwAc" class="quantumWizTextinputPaperinputFocusUnderline exportFocusUnderline"></div>
+                                                </div>
+                                            </div>
+                                            <div class="quantumWizTextinputPaperinputCounterErrorHolder">
+                                                <div jsname="ty6ygf" class="quantumWizTextinputPaperinputHint exportHint"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="freebirdFormviewerViewItemsItemGradingGradingBox freebirdFormviewerViewItemsItemGradingFeedbackBox"
+                                        jsname="R7fTud"></div>
+                                    <div jsname="XbIQze" class="freebirdFormviewerViewItemsItemErrorMessage" id="i.err.1417866112"
+                                        role="alert"></div>
+                                </div>
+                                <div role="listitem" class="freebirdFormviewerViewItemsItemItem freebirdFormviewerViewItemsTextTextItem"
+                                    jsname="ibnC6b" jscontroller="rDGJeb" jsaction="sPvj8e:e4JwSe,vwKRrd;" data-required="true"
+                                    data-item-id="1465618226">
+                                    <div class="freebirdFormviewerViewItemsItemItemHeader">
+                                        <div class="freebirdFormviewerViewItemsItemItemTitleContainer">
+                                            <div class="freebirdFormviewerViewItemsItemItemTitle freebirdCustomFont" dir="auto"
+                                                role="heading" aria-level="2" aria-describedby="i.desc.1465618226 i15">Comments
+                                                <span class="freebirdFormviewerViewItemsItemRequiredAsterisk" aria-label="Required question">*</span>
+                                            </div>
+                                            <div class="freebirdFormviewerViewItemsItemItemHelpText" id="i.desc.1465618226"
+                                                dir="auto"></div>
+                                        </div>
+                                    </div>
+                                    <div class="quantumWizTextinputPapertextareaEl modeLight freebirdFormviewerViewItemsTextLongText freebirdThemedInput"
+                                        jscontroller="pxq3x" jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV;"
+                                        jsshadow jsname="W85ice">
+                                        <div class="quantumWizTextinputPapertextareaMainContent exportContent">
+                                            
+                                            <div class="quantumWizTextinputPapertextareaContentArea exportContentArea">
+                                                <textarea class="quantumWizTextinputPapertextareaInput exportTextarea" jsname="YPqjbf"
+                                                    data-rows="1" tabindex="0" aria-label="Comments" jscontroller="gZjhIf" jsaction="input:Lg5SV;ti6hGc:XMgOHc;rcuQ6b:WYd;"
+                                                    required name="entry.199957736" dir="auto" data-initial-dir="auto" data-initial-value=""></textarea>
+                                            </div>
+                                            <div class="quantumWizTextinputPapertextareaUnderline exportUnderline"></div>
+                                            <div jsname="XmnwAc" class="quantumWizTextinputPapertextareaFocusUnderline exportFocusUnderline"></div>
+                                        </div>
+                                        <div class="quantumWizTextinputPapertextareaCounterErrorHolder">
+                                            <div jsname="ty6ygf" class="quantumWizTextinputPapertextareaHint exportHint"></div>
+                                        </div>
+                                    </div>
+                                    <div class="freebirdFormviewerViewItemsItemGradingGradingBox freebirdFormviewerViewItemsItemGradingFeedbackBox"
+                                        jsname="R7fTud"></div>
+                                    <div jsname="XbIQze" class="freebirdFormviewerViewItemsItemErrorMessage" id="i.err.1465618226"
+                                        role="alert"></div>
+                                </div>
+                            </div>
+                            <div class="freebirdFormviewerViewNavigationNavControls" jscontroller="lSvzH" jsaction="rcuQ6b:npT2md;JIbuQc:Gl574d(QR6bsb),V3upec(GeGHKb),HiUbje(M2UYVd),NPBnCf(OCpkoe);"
+                                data-shuffle-seed="-3466061916661693095" data-should-execute-invisible-captcha-challenge="false"
+                                data-is-receipt-checked="false">
+                                <div class="freebirdFormviewerViewNavigationButtonsAndProgress">
+                                    <div class="freebirdFormviewerViewNavigationButtons">
+                                        <div role="button" class="quantumWizButtonPaperbuttonEl quantumWizButtonPaperbuttonFlat quantumWizButtonPaperbuttonDark quantumWizButtonPaperbutton2El2 freebirdFormviewerViewNavigationSubmitButton"
+                                            jscontroller="VXdfxd" jsaction="click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue;touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc(preventMouseEvents=true|preventDefault=true); touchcancel:JMtRjd;focus:AHmuwe; blur:O22p3e; contextmenu:mg9Pef;"
+                                            jsshadow jsname="M2UYVd" aria-disabled="false" tabindex="0">
+                                            <div class="quantumWizButtonPaperbuttonRipple exportInk" jsname="ksKsZd"></div>
+                                            <div class="quantumWizButtonPaperbuttonFocusOverlay exportOverlay"></div>
+                                            <content class="quantumWizButtonPaperbuttonContent">
+                                                <span class="btn btn-primary">Submit</span>
+                                            </content>
+                                        </div>
+                                    </div>
+                                </div>
+                               </div>
+                            <input type="hidden" name="fvv" value="1">
+                            <input type="hidden" name="draftResponse" value="[null,null,&quot;-3466061916661693095&quot;]
+                    ">
+                            <input type="hidden" name="pageHistory" value="0">
+                            <input type="hidden" name="fbzx" value="-3466061916661693095">
+                        </div>
+                    </div>
+                </form> -->
+            </div>
+    </div>
+    <!-- Add Google Maps -->
+    <!--<div id="googleMap" style="height:400px;width:100%;"></div>
+    <script>
+        function myMap() {
+            var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+            var mapProp = { center: myCenter, zoom: 12, scrollwheel: false, draggable: false, mapTypeId: google.maps.MapTypeId.ROADMAP };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            var marker = new google.maps.Marker({ position: myCenter });
+            marker.setMap(map);
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>-->
+    <!--
+    To use this code on your website, get a free API key from Google.
+    Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+    -->
+    <footer class="container-fluid text-center">
+        <a href="#myPage" title="To Top">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+        <p>
+            <a href="http://www.carechemcorp.in/" title="CareCHEM Corporation">Copyright &copy; &nbsp; 2018 CareCHEM Corporation - All Rights Reserved</a>
+        </p>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+
+            $(window).scroll(function () {
+                $(".slideanim").each(function () {
+                    var pos = $(this).offset().top;
+
+                    var winTop = $(window).scrollTop();
+                    if (pos < winTop + 600) {
+                        $(this).addClass("slide");
+                    }
+                });
+            });
+        })
+    </script>
+</body>
+
+</html>

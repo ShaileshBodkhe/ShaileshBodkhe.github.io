@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!-- Theme Made By www.w3schools.com - No Copyright -->
-    <title>CareCHEM Corporation | Principals</title>
+    <title>CareCHEM Corporation | Products</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -12,7 +12,7 @@
     <meta name="author" content="CareCHEM Corporation" />
     <meta property="og:url" content="http://www.carechemcorp.in/" />
     <meta property="og:site_name" content="CareCHEM Corporation" />
-    <meta property="og:title" content="CareCHEM Corporation: Principals" />
+    <meta property="og:title" content="CareCHEM Corporation: Products and Solutions" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary" />
@@ -26,18 +26,66 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="jquery.csv-0.71.min.js"></script>
     <link rel="stylesheet" href="careChemStyleSheet.css" />
     <!-- crisp -->
     <!-- <script type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "38aa1da2-d02e-4aaa-b1d1-103bc8537418"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script> -->
     <style type="text/css">
-        ul {
-            list-style-type: none;
-        }
     </style>
     <script type="text/javascript">
         $(document).ready(function () {
             $("#careChemNavBar").load("navbar.html", function (response, status, xhr) {
 
+            });
+            function generateHtmlTable(data) {
+                var html = '<table class="table table-condensed table-hover table-striped">';
+
+                if (typeof (data[0]) === 'undefined') {
+                    return null;
+                } else {
+                    $.each(data, function (index, row) {
+                        //bind header
+                        if (index == 0) {
+                            html += '<thead>';
+                            html += '<tr>';
+                            $.each(row, function (index, colData) {
+                                html += '<th text-align="center">';
+                                html += colData;
+                                html += '</th>';
+                            });
+                            html += '</tr>';
+                            html += '</thead>';
+                            html += '<tbody>';
+                        } else {
+                            html += '<tr>';
+                            $.each(row, function (index, colData) {
+                                if ("SOLUTIONS" == colData) {                                    
+                                    html += '<th>';
+                                    html += colData;
+                                    html += '</th>';
+                                }
+                                else {
+                                    html += '<td>';
+                                    html += colData;
+                                    html += '</td>';
+                                }
+                            });
+                            html += '</tr>';
+                        }
+                    });
+                    html += '</tbody>';
+                    html += '</table>';
+                    $('#productList').append(html);
+                }
+            }
+            $.ajax({
+                type: "GET",
+                url: "products.csv",
+                dataType: "text",
+                success: function (response) {
+                    data = $.csv.toArrays(response);
+                    generateHtmlTable(data);
+                }
             });
         });
     </script>
@@ -45,32 +93,12 @@
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
     <div id="careChemNavBar"> </div>
     <!-- Container (Contact Section) -->
-    <div id="principals" class="container-fluid bg-grey">
+    <div id="products" class="container-fluid bg-grey">
         <div style="text-align:center;float: left;vertical-align:middle;margin-top:10%;color: navy">
-            <div id="principalList">
-                <ul>
-                    <li>
-                        <div class="card" style="margin:20px;">
-                            <div class="container">
-                                <h4 color="navy"><b>Godrej Industries</b></h4>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card" style="margin:20px;">
-                            <div class="container">
-                                <h4 color="navy"><b>Lamberti, Italy</b></h4>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card" style="margin:20px;">
-                            <div class="container">
-                                <h4 color="navy"><b>Umang Pharma</b></h4>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+            <div class="row">
+                <div id="productList" class="col-md-2 col-md-offset-8 col-lg-2 col-lg-offset-8" style="width:600px;">
+
+                </div>
             </div>
         </div>
     </div>
